@@ -116,3 +116,8 @@ function replyMessage_Send(event)
         location.reload();
     });
 }
+
+function logout()
+{
+    location.href("./logout.php");
+}
