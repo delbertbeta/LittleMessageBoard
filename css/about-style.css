@@ -1,0 +1,23 @@
+body{
+    margin: 0 0;
+    background: url("../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-attachment: fixed;
+    font-family: Microsoft Yahei UI Light;
+    text-align: center;
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+}
+
+#FaceImage
+{
+    width: 150px;
+    height: 150px;
+}
+
+#Content
+{
+    margin-top: 15%
+}

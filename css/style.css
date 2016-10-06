@@ -1,0 +1,215 @@
+body
+{
+    margin: 0 0;
+    font-family: Microsoft Yahei UI Light;
+}
+
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
+
+#FunctionArea
+{
+    position: fixed;
+    margin-top: 20%;
+    height: 100px;
+}
+
+#FunctionBarDiv
+{
+    position: relative;
+    background-color: #282d2f;
+    width: 50px;
+    height: 100px;
+    box-shadow: 0px 2px 10px #46626b;
+    float: left;
+    z-index: 0;
+
+    /*display: flex;
+    align-items: center;
+    justify-content: center;*/
+}
+
+#FaceImage
+{
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 2px #000000;
+    margin: 8px 0px 3px 4px;
+    transition: box-shadow 0.2s;
+}
+
+#FaceImage:hover
+{
+    box-shadow: 0px 0px 2px white;
+}
+
+#FaceImage:hover>#FunctionArea #PersonalInfomationDiv
+{
+    opacity: 1;
+}
+
+#ContentDiv
+{
+    margin: 0 auto;
+    width: 500px;
+    height: 100%;
+    z-index: -1;
+    margin-top: 10px;
+}
+
+#CommentDiv
+{
+    margin: 0 auto;
+    width: 500px;
+    height: fit-content;
+    z-index: -1;
+    margin-top: 10px;
+}
+
+#CommentTextArea
+{
+    width: 500px;
+    padding: 10px 10px;
+    background-color: #d7d7d7;
+    border-radius: 3px;
+    border: 0px;
+    font-family:Microsoft YaHei Light,Microsoft YaHei,SimSun;
+    overflow-y: visible;
+}
+
+
+#AboutButton
+{
+    margin: 3px 20px;
+    color: #3d738d;
+    font-family: Microsoft Yahei UI Bold, Microsoft Yahei UI;
+    font-weight: bold;
+    font-size: 25px;
+    transition: color 0.2s;
+}
+
+#AboutButton:hover
+{
+    color: white;
+}
+
+#Content
+{
+    padding: 10px 10px;
+    width: 500px;
+    /*height: 200px;*/
+    height: fit-content;
+    border-radius: 3px;
+    background-color: #282d2f;
+    color: white;
+    border: 0px;
+    margin: 10px 0px;
+    position: relative;
+}
+
+
+#ContentTitle
+{
+    margin: 0px 0px;
+}
+
+#ContentName
+{
+    font-family: Microsoft Yahei UI Bold,  Microsoft Yahei UI;
+    font-weight: bold;
+}
+
+#ContentTime
+{
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#ContentText
+{
+    margin-top: 5px;
+}
+
+#ContentFunction
+{
+    margin-top: 5px;
+    text-align: right;
+    color: lightgray;
+    font-size: 14px;
+}
+
+#FunctionLink
+{
+    transition: color 0.2s;
+}
+
+#FunctionLink:hover
+{
+    color: white;
+    cursor: pointer;
+}
+
+#ContentId
+{
+    color: gray;
+    font-size: 20px;
+    font-family: Microsoft Yahei UI Bold, Microsoft Yahei UI;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    margin: 10px 10px;
+    font-weight: bold;
+}
+
+#EditArea
+{
+    margin-top: 5px;
+    font-family: Microsoft Yahei UI Light;
+    border: 0;
+    color: white;
+    background-color: #282d2f;
+    box-shadow: 0px 0px 1px gray;
+    font-size: 16px;
+    width: 500px;
+    overflow-y: visible;
+}
+
+#RelativeContent
+{
+    padding: 10px 10px;
+    width: 400;
+    /*height: 200px;*/
+    height: fit-content;
+    border-radius: 3px;
+    background-color: #141718;
+    color: white;
+    border: 0px;
+    margin: 10px 0px;
+    position: relative;
+}
+
+#RelativeContentTitle
+{
+    margin: 0px 0px;
+}
+
+#RelativeContentName
+{
+    font-family: Microsoft Yahei UI Bold,  Microsoft Yahei UI;
+    font-weight: bold;
+}
+
+#RelativeContentTime
+{
+    color: gray;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+#RelativeContentText
+{
+    margin-top: 5px;
+}

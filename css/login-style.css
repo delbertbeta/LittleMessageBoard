@@ -1,0 +1,113 @@
+body{
+    margin: 0 0;
+    /*background: url("../assets/background.jpg");
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    background-attachment: fixed;*/
+    font-family: Microsoft Yahei UI Light;
+    color: white;
+}
+
+#LoginDiv
+{
+    margin: 8% auto auto auto;
+    background-color: #282d2f;
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#LoginTitle
+{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+#LargerText
+{
+    font-family: Microsoft Yahei UI Light;
+    margin: 0px 0px;
+    font-size: 30px;
+}
+
+#LitterText
+{
+    font-family: Microsoft Yahei UI Light;
+    font-size: 20px;
+    margin: 0px 0px;
+}
+
+#Line
+{
+    position: relative;
+    top: 10px;
+    left: 25px;
+}
+
+#InputArea
+{
+    position: relative;
+    width: 200px;
+    top: 20px;
+    margin: 0 auto;
+}
+
+.InputBox
+{
+    width: 200px;
+    border: 0px;
+    background-color: lightgray;
+    height: 20px;
+}
+
+.TipText
+{
+    margin: 3px 0px;
+    color: gray;
+    font-size: 13px;
+}
+
+
+#Submit
+{
+    width: 200px;
+    height: 30px;
+    margin: 15px auto;
+    background: deepskyblue;
+    border: 0px;
+    color: white;
+    font-family: Microsoft Yahei UI Light;
+}
+
+#Submit:hover
+{
+    cursor: pointer;
+    background: #6cdaff;
+}
+
+#RegisterLink
+{
+    position: fixed;
+    width: 200px;
+    height: 30px;
+    background-color: green;
+    color: white;
+    border: 0px;
+    margin: 15px 100px;
+    font-family: Microsoft Yahei UI Light;
+}
+
+#RegisterLink:hover
+{
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+#ErrorTip
+{
+    margin: 5px 0px 0px 0px;
+    font-size: 10px;
+    color: red;
+}
