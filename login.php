@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("mysql.php");
 if (isset($_SESSION['id']))
     echo '<script>window.location = "./";</script>';
 
@@ -7,8 +8,6 @@ if (isset($_POST['username']))
 {
     $username = $_POST['username'];
     $password = md5($_POST['password']);
-    $con = new mysqli("localhost","root","","message_board");
-    mysqli_set_charset($con, "utf8");
     $result = mysqli_query($con ,"SELECT * FROM `user` WHERE `name` = '$username'");
     if ($result->num_rows == 0)
     {

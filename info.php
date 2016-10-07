@@ -1,10 +1,9 @@
 <?php
 session_start();
+include("mysql.php");
 if (isset($_SESSION['id']))
 {
     $id = $_SESSION['id'];
-    $con = new mysqli("localhost","root","","message_board");
-    mysqli_set_charset($con, "utf8");
     if (!$con) die();
     $result = mysqli_query($con ,"SELECT * FROM `user` WHERE `id` = '$id'");
     $userinfo = $result->fetch_array();
@@ -69,9 +68,9 @@ TABLE;
             echo $userinfo['name'];
             echo '</span><span id="ContentTime">';
             echo $message['date'] . ' ' . $message['time'];
-            echo '</span></p><p id="ContentId">';
+            echo '</span><p id="ContentId">';
             echo $message['id'];
-            echo '</div>';
+            echo '</p></div>';
             if ($message['relative_message'] != 0)
             {
                 $relativeMessageId = $message['relative_message'];

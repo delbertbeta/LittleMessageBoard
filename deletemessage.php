@@ -1,10 +1,9 @@
 <?php
 session_start();
+include("mysql.php");
 if (isset($_SESSION['id']))
 {
 	#连接数据库部分
-	$con = new mysqli("localhost","root","","message_board");
-	mysqli_set_charset($con, "utf8");
 	if (!$con)
 	{
 		die(mysqli_connect_error);

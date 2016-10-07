@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("mysql.php");
 if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpeg") || ($_FILES["file"]["type"] == "image/pjpeg")) && ($_FILES["file"]["size"] < 200000))
 {
     if ($_FILES["file"]["error"] > 0)
@@ -13,8 +14,6 @@ if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "im
         $filename = md5(date("H:i:s")) . '.' . $getName;
         move_uploaded_file($_FILES["file"]["tmp_name"], "./upload/" . $filename);
         $userid = $_SESSION['id'];
-        $con = new mysqli("localhost","root","","message_board");
-        mysqli_set_charset($con, "utf8");
         $sql = "UPDATE `user` SET `faceimage` = './upload/$filename' WHERE `user`.`id` = $userid ;";
         if(mysqli_query($con, $sql))
         {

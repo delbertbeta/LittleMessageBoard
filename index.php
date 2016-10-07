@@ -1,11 +1,10 @@
 <?php
 session_start();
+include("mysql.php");
 $isLogin = false;
 $isAdmin = false;
 $id = 0;
 
-$con = new mysqli("localhost","root","","message_board");
-mysqli_set_charset($con, "utf8");
 if (!$con) die();
 
 if (!isset($_SESSION['id']))
@@ -88,9 +87,9 @@ if (!$isLogin)
         echo $userinfo['name'];
         echo '</span><span id="ContentTime">';
         echo $message['date'] . ' ' . $message['time'];
-        echo '</span></p><p id="ContentId">';
+        echo '</span><p id="ContentId">';
         echo $message['id'];
-        echo '</div>';
+        echo '</p></div>';
         if ($message['relative_message'] != 0)
         {
             $relativeMessageId = $message['relative_message'];
@@ -133,9 +132,9 @@ else{
         echo $userinfo['name'];
         echo '</span><span id="ContentTime">';
         echo $message['date'] . ' ' . $message['time'];
-        echo '</span></p><p id="ContentId">';
+        echo '</span><p id="ContentId">';
         echo $message['id'];
-        echo '</div>';
+        echo '</p></div>';
         if ($message['relative_message'] != 0)
         {
             $relativeMessageId = $message['relative_message'];

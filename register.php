@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("mysql.php");
 if (isset($_SESSION['id']))
     echo '<script>window.location = "./";</script>';
 
@@ -8,11 +9,6 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['pass
     $username = $_POST['username'];
     $password = md5($_POST['password']);
     $confirmpw = md5($_POST['passwordconfirm']);
-    $con = new mysqli("localhost","root","","message_board");
-    mysqli_set_charset($con, "utf8");
-
-
-
     if ($password != $confirmpw)
     {
         $con->close();

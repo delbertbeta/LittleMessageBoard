@@ -42,7 +42,7 @@ function modifyMessage_Send(event)
     var thisElement = event.srcElement;
     var parent = thisElement.parentElement.parentElement;
     var messageText = parent.children.EditArea.value;
-    var id = parent.children.ContentId.innerHTML;
+    var id = parent.children.ContentTitle.children.ContentId.innerHTML;
     var postDataStr = "messageid=" + id + "&message=" + messageText;
     $.post("./modifymessage.php", postDataStr, function(data)
     {
@@ -108,7 +108,7 @@ function replyMessage_Send(event)
     var thisElement = event.srcElement;
     var parent = thisElement.parentElement.parentElement;
     var messageText = parent.children.EditArea.value;
-    var id = parent.children.ContentId.innerHTML;
+    var id = parent.children.ContentTitle.children.ContentId.innerHTML;
     var postDataStr = "messageid=" + id + "&message=" + messageText;
     $.post("./replymessage.php", postDataStr, function(data)
     {
