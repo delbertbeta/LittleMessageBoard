@@ -79,6 +79,7 @@ body{
     border: 0px;
     color: white;
     font-family: Microsoft Yahei UI Light;
+    transition: background-color 0.2s;
 }
 
 #Submit:hover
@@ -97,6 +98,7 @@ body{
     border: 0px;
     margin: 15px 100px;
     font-family: Microsoft Yahei UI Light;
+    transition: background-color 0.2s;
 }
 
 #RegisterLink:hover

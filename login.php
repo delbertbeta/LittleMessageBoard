@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['id']))
-    echo '<script>location.href("./");</script>';
+    echo '<script>window.location = "./";</script>';
 
 if (isset($_POST['username']))
 {
@@ -52,7 +52,7 @@ LOGINERRORPAGE;
         {
             $con->close();
             $_SESSION['id'] = $userinfo['id'];
-            echo '<script>location.href("./");</script>';
+            echo '<script>window.location = "./";</script>';
         }
         else {
         $con->close();

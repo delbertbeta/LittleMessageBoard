@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION['id']))
-    echo '<script>location.href("./");</script>';
+    echo '<script>window.location = "./";</script>';
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passwordconfirm']))
 {
@@ -92,7 +92,7 @@ USEREXISTERROR;
             $userinfo = $result->fetch_array();
             $con->close();
             $_SESSION['id'] = $userinfo['id'];
-            echo "<script>alert('注册成功 id:" .$userinfo['id'] . " username: " . $userinfo['name'] ." 请妥善保管！');location.href('./');</script>";
+            echo "<script>alert('注册成功 id:" .$userinfo['id'] . " username: " . $userinfo['name'] ." 请妥善保管！');window.location = './';</script>";
         }
     }
 }

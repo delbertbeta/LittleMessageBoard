@@ -75,16 +75,22 @@ if (!$isLogin)
     $result = mysqli_query($con ,"SELECT * FROM `messages` ORDER BY `id` DESC");
     while ($message = $result->fetch_array())
     {
-        echo '<div id="Content"><p id="ContentTitle"><span id="ContentName">';
+        echo '<div id="Content"><div id="ContentTitle">';
         $thisid = $message['userid'];
-        $query = mysqli_query($con ,"SELECT * FROM `user` WHERE `id` = $thisid");
+        $query = mysqli_query($con ,"SELECT * FROM `user` WHERE `id` = '$thisid'");
         $userinfo = $query->fetch_array();
+        $faceimage = $userinfo['faceimage'];
+        if($faceimage != "")
+            echo '<img id="ContentFaceImage" src="' . $faceimage . '" />';
+        else
+            echo '<img id="ContentFaceImage" src="./assets/defaultface.jpg" />';
+        echo '<span id="ContentName">';
         echo $userinfo['name'];
         echo '</span><span id="ContentTime">';
         echo $message['date'] . ' ' . $message['time'];
         echo '</span></p><p id="ContentId">';
         echo $message['id'];
-        echo '</p>';
+        echo '</div>';
         if ($message['relative_message'] != 0)
         {
             $relativeMessageId = $message['relative_message'];
@@ -114,16 +120,22 @@ else{
     $result = mysqli_query($con ,"SELECT * FROM `messages` ORDER BY `id` DESC");
     while ($message = $result->fetch_array())
     {
-        echo '<div id="Content"><p id="ContentTitle"><span id="ContentName">';
+        echo '<div id="Content"><div id="ContentTitle">';
         $thisid = $message['userid'];
         $query = mysqli_query($con ,"SELECT * FROM `user` WHERE `id` = '$thisid'");
         $userinfo = $query->fetch_array();
+        $faceimage = $userinfo['faceimage'];
+        if($faceimage != "")
+            echo '<img id="ContentFaceImage" src="' . $faceimage . '" />';
+        else
+            echo '<img id="ContentFaceImage" src="./assets/defaultface.jpg" />';
+        echo '<span id="ContentName">';
         echo $userinfo['name'];
         echo '</span><span id="ContentTime">';
         echo $message['date'] . ' ' . $message['time'];
         echo '</span></p><p id="ContentId">';
         echo $message['id'];
-        echo '</p>';
+        echo '</div>';
         if ($message['relative_message'] != 0)
         {
             $relativeMessageId = $message['relative_message'];

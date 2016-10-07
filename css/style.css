@@ -24,7 +24,7 @@ a:active {text-decoration:none;}
     height: 100px;
     box-shadow: 0px 2px 10px #46626b;
     float: left;
-    z-index: 0;
+    z-index: 10;
 
     /*display: flex;
     align-items: center;
@@ -38,16 +38,12 @@ a:active {text-decoration:none;}
     box-shadow: 0px 0px 2px #000000;
     margin: 8px 0px 3px 4px;
     transition: box-shadow 0.2s;
+    border-radius: 2px;
 }
 
 #FaceImage:hover
 {
     box-shadow: 0px 0px 2px white;
-}
-
-#FaceImage:hover>#FunctionArea #PersonalInfomationDiv
-{
-    opacity: 1;
 }
 
 #ContentDiv
@@ -119,6 +115,7 @@ a:active {text-decoration:none;}
 {
     font-family: Microsoft Yahei UI Bold,  Microsoft Yahei UI;
     font-weight: bold;
+    vertical-align: middle;
 }
 
 #ContentTime
@@ -126,11 +123,13 @@ a:active {text-decoration:none;}
     color: gray;
     font-size: 12px;
     margin-left: 5px;
+    vertical-align: text-bottom;
 }
 
 #ContentText
 {
-    margin-top: 5px;
+    margin-top: 2px;
+    margin-bottom: 5px;
 }
 
 #ContentFunction
@@ -214,3 +213,11 @@ a:active {text-decoration:none;}
     margin-top: 5px;
 }
 
+#ContentFaceImage
+{
+    width: 25px;
+    height: 25px;
+    border-radius: 2px;
+    margin: 0px 5px 0px 0px;
+    vertical-align: middle;
+}

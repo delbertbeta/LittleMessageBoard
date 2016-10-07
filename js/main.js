@@ -73,12 +73,12 @@ function modifyMessage(event)
 
 function navigateToRegister()
 {
-    location.href("./register.php");
+    window.location = "./register.php";
 }
 
 function navigateToLogin()
 {
-    location.href("./login.php");
+    window.location = "./login.php";
 }
 
 function replyMessage(event)
@@ -119,5 +119,26 @@ function replyMessage_Send(event)
 
 function logout()
 {
-    location.href("./logout.php");
+    window.location = "./logout.php";
+}
+
+function uploadFace(event)
+{
+    var body = document.body;
+    var shadowDiv = document.createElement("div");
+    shadowDiv.setAttribute("id", "ShadowDiv");
+    shadowDiv.style.opacity = 0;
+    body.appendChild(shadowDiv);
+    body.children.ShadowDiv.style.opacity = 0.5;
+    var uploadDiv = document.createElement("div");
+    uploadDiv.setAttribute("id", "UploadDiv");
+    uploadDiv.innerHTML = '<button id="CloseButton" onclick="CloseUpload()">x</button><form id="UploadArea" action="./uploadfaceimage.php" method="post" enctype="multipart/form-data"><input type="file" name="file" id="FileUploadButton" accept=".png, .jpg, .jpeg" /><br><input type="submit" id="UploadButton" name="submit" value="UPLOAD" /></form>';
+    body.appendChild(uploadDiv);
+}
+
+function CloseUpload()
+{
+    var body = document.body;
+    body.removeChild(body.children.ShadowDiv);
+    body.removeChild(body.children.UploadDiv);
 }
