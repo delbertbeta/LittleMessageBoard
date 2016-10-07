@@ -24,9 +24,9 @@ function deleteMessage(event)
         async:false,
     });
     var thisElement = event.srcElement;
-    var content = thisElement.parentElement.parentElement;
-    var id = content.children.ContentId;
-    var postDataStr = "id=" + id.innerHTML;
+    var parent = thisElement.parentElement.parentElement;
+    var id = parent.children.ContentTitle.children.ContentId.innerHTML;
+    var postDataStr = "id=" + id;
     $.post("./deletemessage.php", postDataStr, function(data)
     {
         alert(data);
