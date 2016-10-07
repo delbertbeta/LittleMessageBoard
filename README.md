@@ -5,4 +5,3 @@ A homework for BBT which based on PHP/JS/MySQL. It may seems like a tiny version
 PS. If time permits, it will have a app on Universal Windows Platform.
 
 delbertbeta
-
