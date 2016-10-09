@@ -105,7 +105,7 @@ if (!$isLogin)
             echo '</span></p><p id="ContentId">';
             echo $relativeMessage['id'];
             echo '<div id="RelativeContentText">';
-            echo showCode($relativeMessage['message']);
+            echo $relativeMessage['message'];
             echo '</div>';
             echo '</div>';
         }
