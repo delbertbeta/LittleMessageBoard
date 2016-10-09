@@ -6,7 +6,7 @@ if (isset($_SESSION['id']))
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['passwordconfirm']))
 {
-    $username = $_POST['username'];
+    $username = refuseXss($_POST['username']);
     $password = md5($_POST['password']);
     $confirmpw = md5($_POST['passwordconfirm']);
     if ($password != $confirmpw)
@@ -122,4 +122,15 @@ else echo <<<REGISTERPAGE
     </body>
 </html>
 REGISTERPAGE;
+
+function refuseXss($str)
+{
+	$farr = array(
+	"/\\s+/",
+	"/<(\\/?)(script|i?frame|style|html|body|title|link|meta|object|\\?|\\%)([^>]*?)>/isU",
+	"/(<[^>]*)on[a-zA-Z]+\s*=([^>]*>)/isU",
+	);
+	$str = preg_replace($farr,"",$str);
+	return $str;
+}
 ?>

@@ -11,7 +11,7 @@ if (isset($_SESSION['id']))
 	$date = date("Y-m-d");
 	$time = date("H:i:s");
 	// echo($_POST['message']);
-	$message = refuseXss($_POST['message']);
+	$message = html_entity_decode($_POST['message']);
 	$userid = $_SESSION['id'];
 	$messageid = $_POST['messageid'];
 	$findInfo = mysqli_query($con, "SELECT * FROM `messages` WHERE `id` = $messageid");
@@ -33,14 +33,4 @@ else
 	echo '你居然没登陆就想来骗我？哼唧(╯▔皿▔)╯';
 }
 
-function refuseXss($str)
-{
-	$farr = array(
-	"/\\s+/",
-	"/<(\\/?)(script|i?frame|style|html|body|title|link|meta|object|\\?|\\%)([^>]*?)>/isU",
-	"/(<[^>]*)on[a-zA-Z]+\s*=([^>]*>)/isU",
-	);
-	$str = preg_replace($farr,"",$str);
-	return $str;
-}
 ?>

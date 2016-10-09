@@ -1,11 +1,11 @@
 function sendMessage(e,id)
 {
-    $.ajax({
-        async:false,
-    });
-    var area = document.getElementById("CommentTextArea");
     if (e.keyCode == 13) {
         if (area.value != "") {
+            $.ajax({
+                async:false,
+            });
+            var area = document.getElementById("CommentTextArea");
             var postDataStr = 'message=' + area.value + '&userid=' + id;
             $.post("./sendmessage.php", postDataStr, function(data){
                 alert(data);

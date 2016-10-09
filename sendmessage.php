@@ -12,7 +12,7 @@ if (isset($_SESSION['id']))
 	$date = date("Y-m-d");
 	$time = date("H:i:s");
 	// echo($_POST['message']);
-	$message = refuseXss($_POST['message']);
+	$message = html_entity_decode($_POST['message']);
 	$userid = $_POST['userid'];
 	$sql = "INSERT INTO `messages` (`id`, `userid`, `date`, `time`, `message`) VALUES (NULL, '$userid', '$date', '$time', '$message');";
 	if(mysqli_query($con, $sql))
@@ -28,16 +28,5 @@ if (isset($_SESSION['id']))
 else
 {
 	echo '你居然没登陆就想来骗我？哼唧(╯▔皿▔)╯';
-}
-
-function refuseXss($str)
-{
-	$farr = array(
-	"/\\s+/",
-	"/<(\\/?)(script|i?frame|style|html|body|title|link|meta|object|\\?|\\%)([^>]*?)>/isU",
-	"/(<[^>]*)on[a-zA-Z]+\s*=([^>]*>)/isU",
-	);
-	$str = preg_replace($farr,"",$str);
-	return $str;
 }
 ?>

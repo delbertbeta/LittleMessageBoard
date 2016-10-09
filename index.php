@@ -105,7 +105,7 @@ if (!$isLogin)
             echo '</span></p><p id="ContentId">';
             echo $relativeMessage['id'];
             echo '<div id="RelativeContentText">';
-            echo $relativeMessage['message'];
+            echo showCode($relativeMessage['message']);
             echo '</div>';
             echo '</div>';
         }
@@ -178,6 +178,5 @@ echo <<<END
 END;
 $result->free();
 $con->close();
-
 ?>
 
