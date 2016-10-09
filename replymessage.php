@@ -11,7 +11,7 @@ if (isset($_SESSION['id']))
 	$date = date("Y-m-d");
 	$time = date("H:i:s");
 	// echo($_POST['message']);
-	$message = html_entity_decode($_POST['message']);
+	$message = htmlentities($_POST['message']);
 	$userid = $_SESSION['id'];
 	$messageid = $_POST['messageid'];
 	$findInfo = mysqli_query($con, "SELECT * FROM `messages` WHERE `id` = $messageid");

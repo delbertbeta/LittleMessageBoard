@@ -12,7 +12,7 @@ if (isset($_SESSION['id']))
 	$date = date("Y-m-d");
 	$time = date("H:i:s");
 	// echo($_POST['message']);
-	$message = html_entity_decode($_POST['message']);
+	$message = htmlentities($_POST['message']);
 	$userid = $_POST['userid'];
 	$sql = "INSERT INTO `messages` (`id`, `userid`, `date`, `time`, `message`) VALUES (NULL, '$userid', '$date', '$time', '$message');";
 	if(mysqli_query($con, $sql))
