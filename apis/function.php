@@ -25,7 +25,8 @@ function checkAuthority($messageId, $userId)
         return true;
     }
     $getMessage = $con->query("SELECT * FROM `messages` WHERE `id` = " . $messageId);
-    if ($userId  == $message = $getMessage->userid)
+    $message = $getMessage->fetch_object();
+    if ($userId == $message = $message->userid)
     {
         return true;
     }
