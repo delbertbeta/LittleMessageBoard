@@ -31,6 +31,7 @@ var FunctionComponent = Vue.extend({
         },
         modifyMessage: function(){
             this.isModify = true;
+            this.input_message = this.message.message;
         },
         deleteMessage: function(){
             $.ajax({

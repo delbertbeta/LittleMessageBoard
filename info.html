@@ -52,9 +52,7 @@
                         <div v-else id="RelativeContentText">你来晚啦~原文已被删除.../(ㄒoㄒ)/~~</div>
                     </div>
                     <div id="ContentText">{{htmlDecode(message.message)}}</div>
-                    <div id="ContentFunction">
-                        <a onclick="replyMessage(event)" id="FunctionLink">回复</a>
-                    </div>
+                    <function-bar :userinfo="userinfo" :message="message"></function-bar>
                 </div>
             </div>
             <p v-else >真寂寞，没人回复你呢...</p>

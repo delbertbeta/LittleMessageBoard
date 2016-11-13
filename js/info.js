@@ -1,3 +1,56 @@
+var FunctionComponent = Vue.extend({
+    props: {
+        message: null,
+        userinfo: null
+    },
+    template:
+            '<div v-show="!(!(userinfo))" id="ContentFunction">' +
+                '<textarea v-if="isReply" transition="expand" id="EditArea" placeholder="请输入回复内容哟" @keydown.enter="reply" v-model="input_message"></textarea>' + 
+                '<a v-show="(userinfo.admin == 1 || userinfo.id == message.userid) && !(isModify || isReply)" @click="replyMessage" id="FunctionLink">回复</a>' + 
+                '<a v-show="isModify || isReply" @click="cancel" id="FunctionLink">取消</a>' +
+                '<a v-show="isReply" @click="reply" id="FunctionLink">回复</a>' +
+            '</div>',
+    data: function()
+        {
+            return {
+                isReply: false,
+                input_message: ""
+            }
+        },
+    methods: {
+        replyMessage: function(){
+            this.isReply = true;
+        },
+        cancel: function(){
+            this.isReply = false;
+        },
+        reply: function(){
+            $.ajax({
+                url: "./apis/reply_message.php",
+                type: "post",
+                dataType: "json",
+                data: "messageid=" + this.message.id + "&message=" + this.input_message,
+                success: function(data){
+                    if (data.code == 0){
+                        alert("回复好了哟！");
+                    }
+                    else if(data.code == 8){
+                        alert("发生了一些不好的事情：Code: " + data.code + ", " + data.explain);
+                        logout();
+                    }
+                    else{
+                        alert("发生了一些不好的事情：Code: " + data.code + ", " + data.explain);
+                    }
+                }
+            })
+            this.isReply = false;
+        }
+    }
+})
+
+Vue.component('function-bar', FunctionComponent)
+
+
 var Userinfo = new Vue({
     el: "#InfoTable",
     data: {
@@ -13,6 +66,7 @@ var Userinfo = new Vue({
         {
             $.getJSON("./apis/get_user_info.php", "id=" + getCookie("id"), function(data){
                 Userinfo.Userinfo = data;
+                Content.userinfo = data;
             })
         }
         else
@@ -27,6 +81,7 @@ var Content = new Vue({
     data: {
         messages: {},
         isThereMessages: false,
+        userinfo: {},
     },
     init: function(){
         $.getJSON("./apis/get_relative_messages.php", "id=" + getCookie("id"),function(data){
