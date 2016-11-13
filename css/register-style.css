@@ -8,7 +8,7 @@ body{
     color: white;
 }
 
-#RegisterDiv
+#Register
 {
     margin: 8% auto auto auto;
     background-color: #282d2f;
@@ -112,4 +112,11 @@ body{
     margin: 5px 0px 0px 0px;
     font-size: 10px;
     color: red;
+}
+
+#SuccessTip
+{
+    margin: 5px 0px 0px 0px;
+    font-size: 10px;
+    color: green;
 }

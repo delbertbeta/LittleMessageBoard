@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>Message Board - Infomation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/info-style.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/dmuploader.min.js"></script>
+</head>
+<body>
+    <div id="ContentDiv">
+        <table id="InfoTable">
+            <tr>
+            <td>
+                <img id="InfoFaceImage" v-if="Userinfo.faceimage == ''" onclick="ShowUpload()" src="./assets/defaultface.jpg" />
+                <img id="InfoFaceImage" onclick="ShowUpload()" v-else v-bind:src="Userinfo.faceimage" />
+            </td>
+            <td>
+                <p id="UserInfo"><span id="UserInfoTitle">ID: </span><span id="UserId">{{Userinfo.id}}</span></p>
+                <p id="UserInfo"><span id="UserInfoTitle">Username: </span><span>{{Userinfo.name}}</span></p>
+                <button @click="logout" id="LogoutButton">LOGOUT</button>
+            </td>
+            </tr>
+        </table>
+        <div id="NavigationDiv">
+            <p id="TipText">回复我的</p>
+            <svg id="Line" width="500px" height="2px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="0" x2="500" y2="0" style="stroke:rgb(99,99,99);stroke-width:1"></line>
+            </svg>
+        </div>
+        
+        <div id="ContentApp">
+            <div v-if="isThereMessages">
+                <div transition="fade" v-for="message in messages" id="Content">
+                    <div id="ContentTitle">
+                        <img v-if="message.faceimage != ''" id="ContentFaceImage" :src="message.faceimage" />
+                        <img v-else id="ContentFaceImage" src="./assets/defaultface.jpg" />
+                        <span id="ContentName">{{message.username}}</span>
+                        <span id="ContentTime">{{message.date}} {{message.time}}</span>
+                        <p id="ContentId">{{message.id}}</p>
+                    </div>
+                    <div v-if="message.relative_message != 0" id="RelativeContent">
+                        <p v-if="!(message.relative_deleted)" id="RelativeContentTitle">
+                            <span id="RelativeContentName">{{message.relative_username}}</span>
+                            <span id="RelativeContentTime">{{message.relative_date}} {{message.relative_time}}</span>
+                        </p>
+                        <p v-if="!(message.relative_deleted)" id="ContentId">{{message.relative_message}}</p>
+                        <div v-if="!(message.relative_deleted)" id="RelativeContentText">{{htmlDecode(message.relative_message_content)}}</div>
+                        <div v-else id="RelativeContentText">你来晚啦~原文已被删除.../(ㄒoㄒ)/~~</div>
+                    </div>
+                    <div id="ContentText">{{htmlDecode(message.message)}}</div>
+                    <div id="ContentFunction">
+                        <a onclick="replyMessage(event)" id="FunctionLink">回复</a>
+                    </div>
+                </div>
+            </div>
+            <p v-else >真寂寞，没人回复你呢...</p>
+        </div>
+    </div>
+    <div id="FaceUpload">
+        <div transition="fade" v-show="Show" id="ShadowDiv"></div>
+        <div transition="fade" v-show="Show" id="UploadDiv">
+            <button id="CloseButton" @click="CloseUpload">x</button>
+            <div id="UploadArea">
+                <p id="UploadButtonLable">BROWSER &amp; UPLOAD<p>
+                <input id="UploadButton" type="file" name="faceimage" title='BROWSER&UPLOAD'>
+            </div>
+            <p id="StatusText">{{Status}}</p>
+        </div>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/info.js"></script>
+</body>
+</html>

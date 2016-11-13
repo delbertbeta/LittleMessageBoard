@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-cn" xmlns:svg="http://www.w3.org/2000/svg">
+<head>
+    <title>Message Board - Register</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/register-style.css" rel="stylesheet">
+    <script src="./js/main.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <div id="Register">
+        <div id="RegisterTitle">
+            <span id="LargerText">R</span>
+            <span id="LitterText">EGISTER</span>
+        </div>
+        <svg id="Line" width="400px" height="2px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <line x1="0" y1="0" x2="350" y2="0" style="stroke:rgb(99,99,99);stroke-width:1"></line>
+        </svg>
+        <div id="InputArea">
+            <p class="TipText" id="UsernameText">Username</p><input class="InputBox" @keyup.enter="registerAccount" id="UsernameBox" type="text" v-model="RegisterInfo.Username"><br>
+            <p class="TipText" id="PasswordText">Password</p><input class="InputBox" @keyup.enter="registerAccount" id="PasswordBox" type="password" v-model="RegisterInfo.Password"><br>
+            <p class="TipText" id="PasswordText">Confirm Password</p><input class="InputBox" @keyup.enter="registerAccount" id="PasswordBox" type="password" v-model="RegisterInfo.ComfirmPassword"><br>
+            <p v-if="RegisterError" id="ErrorTip">Code: {{Code.code}} , {{Code.explain}}</p>
+            <p v-if="RegisterSuccess" id="SuccessTip">注册成功！用户名：{{UserInfo.username}}, id: {{UserInfo.id}} .2秒后跳转</p>
+            <button @click="registerAccount" id="Submit">REGISTER</button>
+        </div>
+        <button onclick="navigateToLogin()" id="LoginLink">LOGIN</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script src="./js/register.js"></script>
+</body>
+</html>

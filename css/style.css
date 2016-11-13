@@ -37,7 +37,7 @@ a:active {text-decoration:none;}
     height: 40px;
     box-shadow: 0px 0px 2px #000000;
     margin: 8px 0px 3px 4px;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s ease;
     border-radius: 2px;
 }
 
@@ -72,7 +72,7 @@ a:active {text-decoration:none;}
     border-radius: 3px;
     border: 0px;
     font-family:Microsoft YaHei Light,Microsoft YaHei,SimSun;
-    overflow-y: visible;
+    overflow: hidden;
 }
 
 
@@ -105,7 +105,6 @@ a:active {text-decoration:none;}
     position: relative;
 }
 
-
 #ContentTitle
 {
     margin: 0px 0px;
@@ -134,7 +133,6 @@ a:active {text-decoration:none;}
 
 #ContentFunction
 {
-    margin-top: 5px;
     text-align: right;
     color: lightgray;
     font-size: 14px;
@@ -143,6 +141,7 @@ a:active {text-decoration:none;}
 #FunctionLink
 {
     transition: color 0.2s;
+    padding: 0px 2px 0px 2px;
 }
 
 #FunctionLink:hover
@@ -165,7 +164,7 @@ a:active {text-decoration:none;}
 
 #EditArea
 {
-    margin-top: 5px;
+    margin-top: 10px;
     font-family: Microsoft Yahei UI Light;
     border: 0;
     color: white;
@@ -173,7 +172,7 @@ a:active {text-decoration:none;}
     box-shadow: 0px 0px 1px gray;
     font-size: 16px;
     width: 500px;
-    overflow-y: visible;
+    overflow-y: hidden;
 }
 
 #RelativeContent
@@ -220,4 +219,32 @@ a:active {text-decoration:none;}
     border-radius: 2px;
     margin: 0px 5px 0px 0px;
     vertical-align: middle;
+    transition: all 0.5s ease;
+}
+
+#ContentFaceImage:hover{
+    transform: rotate(360deg);
+}
+
+.fade-transition
+{
+    transition: all 1s ease;
+    opacity: 1;
+}
+
+.fade-enter, .fade-leave {
+    height: 0;
+    opacity: 0;
+}
+
+/* always present */
+.expand-transition {
+  transition: all 1s ease;
+  height: 50px;
+  overflow: hidden;
+}
+/* .expand-enter defines the starting state for entering */
+/* .expand-leave defines the ending state for leaving */
+.expand-enter, .expand-leave {
+  height: 0;
 }

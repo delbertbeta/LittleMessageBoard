@@ -8,12 +8,12 @@ body{
     color: white;
 }
 
-#LoginDiv
+#Login
 {
     margin: 8% auto auto auto;
     background-color: #282d2f;
     width: 400px;
-    height: 300px;
+    height: 320px;
     border-radius: 5px;
     position: relative;
 }
@@ -112,4 +112,12 @@ body{
     margin: 5px 0px 0px 0px;
     font-size: 10px;
     color: red;
+}
+
+
+#SuccessTip
+{
+    margin: 5px 0px 0px 0px;
+    font-size: 10px;
+    color: green;
 }

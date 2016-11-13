@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <title>Message Board</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/style.css" rel="stylesheet">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+
+<body>
+    <div id="FunctionArea">
+        <div id="FunctionBarDiv">
+            <a v-if="!userinfo" href="./login.html">
+                <img id="FaceImage" src="./assets/defaultface.jpg" />
+            </a>
+            <a v-else href="./info.html">
+                <img id="FaceImage" v-if="userinfo.faceimage == ''" src="./assets/defaultface.jpg" />
+                <img id="FaceImage" v-else v-bind:src="userinfo.faceimage" />
+            </a>
+            <a href="./about.html">
+                <p id="AboutButton">i</p>
+            </a>
+        </div>
+    </div>
+    <div id="CommentDiv">
+        <textarea transition="expand" v-if="!(!userinfo)" @keydown.enter="sendMessage" id="CommentTextArea" :placeholder="tips" v-model="message"></textarea>
+    </div>
+    <div id="ContentDiv">
+        <div v-for="message in messages" transition="fade" id="Content">
+            <div id="ContentTitle">
+                <img v-if="message.faceimage != ''" id="ContentFaceImage" :src="message.faceimage" />
+                <img v-else id="ContentFaceImage" src="./assets/defaultface.jpg" />
+                <span id="ContentName">{{message.username}}</span>
+                <span id="ContentTime">{{message.date}} {{message.time}}</span>
+                <p id="ContentId">{{message.id}}</p>
+            </div>
+            <div v-if="message.relative_message != 0" id="RelativeContent">
+                <p v-if="!(message.relative_deleted)" id="RelativeContentTitle">
+                    <span id="RelativeContentName">{{message.relative_username}}</span>
+                    <span id="RelativeContentTime">{{message.relative_date}} {{message.relative_time}}</span>
+                </p>
+                <p v-if="!(message.relative_deleted)" id="ContentId">{{message.relative_message}}</p>
+                <div v-if="!(message.relative_deleted)" id="RelativeContentText">{{htmlDecode(message.relative_message_content)}}</div>
+                <div v-else id="RelativeContentText">你来晚啦~原文已被删除.../(ㄒoㄒ)/~~</div>
+            </div>
+            <div id="ContentText">{{htmlDecode(message.message)}}</div>
+            <function-bar :message="message" :userinfo="userinfo"></function-bar>
+        </div>
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
