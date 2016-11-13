@@ -173,6 +173,7 @@ var content = new Vue({
             s = s.replace(/'/g, "\'");
             s = s.replace(/&quot;/g, "\"");
             s = s.replace(/ <br>/g, "\n");
+            s = s.replace(/&middot;/g, "·");
             return s;
         }
     } 
