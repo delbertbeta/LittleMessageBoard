@@ -31,6 +31,21 @@ a:active {text-decoration:none;}
     justify-content: center;*/
 }
 
+#AboutButton
+{
+    margin: 3px 20px;
+    color: #3d738d;
+    font-family: Microsoft Yahei UI Bold, Microsoft Yahei UI;
+    font-weight: bold;
+    font-size: 25px;
+    transition: color 0.2s;
+}
+
+#AboutButton:hover
+{
+    color: white;
+}
+
 #FaceImage
 {
     width: 40px;
@@ -73,22 +88,6 @@ a:active {text-decoration:none;}
     border: 0px;
     font-family:Microsoft YaHei Light,Microsoft YaHei,SimSun;
     overflow: hidden;
-}
-
-
-#AboutButton
-{
-    margin: 3px 20px;
-    color: #3d738d;
-    font-family: Microsoft Yahei UI Bold, Microsoft Yahei UI;
-    font-weight: bold;
-    font-size: 25px;
-    transition: color 0.2s;
-}
-
-#AboutButton:hover
-{
-    color: white;
 }
 
 #Content

@@ -1,0 +1,35 @@
+@media (max-width: 500px){
+    #ContentDiv{
+        width: 350px;
+    }
+
+    #Content{
+        width: 330px;
+    }
+
+    #EditArea{
+        width: 330px;
+    }
+
+    #InfoTable{
+        width: 350px;
+        margin: 10px auto;
+    }
+
+    #InfoFaceImage{
+        height: 120px;
+        width: 120px;
+    }
+
+    #StatusText{
+        left: 25px;
+    }
+
+    #UploadDiv{
+        width: 350px;
+    }
+
+    #Line{
+        display: none;
+    }
+}

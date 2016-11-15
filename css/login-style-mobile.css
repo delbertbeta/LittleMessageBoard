@@ -1,0 +1,14 @@
+@media (max-width: 500px){
+    #Login{
+        width: 350px;
+    }
+    #Line{
+        display: none;
+    }
+    #RegisterLink{
+        margin: 15px 75px;
+    }
+    #LoginTitle{
+        width: 100px;
+    }
+}

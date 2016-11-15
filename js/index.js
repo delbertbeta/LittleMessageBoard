@@ -10,7 +10,7 @@ var FunctionComponent = Vue.extend({
             '<div v-show="!(!(userinfo))" id="ContentFunction">' +
                 '<textarea v-if="isReply" transition="expand" id="EditArea" placeholder="请输入回复内容哟" @keydown.enter="reply" v-model="input_message"></textarea>' + 
                 '<textarea v-if="isModify" transition="expand" id="EditArea" placeholder="请输入一些东西哟" @keydown.enter="modify" v-model="input_message"></textarea>' + 
-                '<a v-show="(userinfo.admin == 1 || userinfo.id == message.userid) && !(isModify || isReply)" @click="replyMessage" id="FunctionLink">回复</a>' + 
+                '<a v-show="!(isModify || isReply)" @click="replyMessage" id="FunctionLink">回复</a>' + 
                 '<a v-show="(userinfo.admin == 1 || userinfo.id == message.userid) && !(isModify || isReply)" @click="modifyMessage" id="FunctionLink">修改</a>' +
                 '<a v-show="(userinfo.admin == 1 || userinfo.id == message.userid) && !(isModify || isReply)" @click="deleteMessage" id="FunctionLink">删除</a>' +
                 '<a v-show="isModify || isReply" @click="cancel" id="FunctionLink">取消</a>' +

@@ -23,17 +23,24 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['reme
             $loginSuccessObject = new loginSuccess;
             $loginSuccessObject->code = 0;
             $loginSuccessObject->id = $userinfo->id;
-            $loginSuccessObject->token = md5(date("H:i:s"));
-            $tokenEffectiveTime;
-            if ($remember == "true")
+            if ((strtotime("now") < strtotime($userinfo->login_token_effective_time)))
             {
-                $tokenEffectiveTime = date("Y-m-d H:i:s",strtotime("+30 day"));
+                $loginSuccessObject->token = $userinfo->login_token;
             }
             else
             {
-                $tokenEffectiveTime = date("Y-m-d H:i:s",strtotime("+1 day"));
+                $loginSuccessObject->token = md5(date("H:i:s"));
+                $tokenEffectiveTime;
+                if ($remember == "true")
+                {
+                    $tokenEffectiveTime = date("Y-m-d H:i:s",strtotime("+30 day"));
+                }
+                else
+                {
+                    $tokenEffectiveTime = date("Y-m-d H:i:s",strtotime("+1 day"));
+                }
+                $con->query("UPDATE `user` SET `login_token` = '" . $loginSuccessObject->token . "', `login_token_effective_time` = '" . $tokenEffectiveTime . "' WHERE `user`.`id` = " . $userinfo->id);
             }
-            $con->query("UPDATE `user` SET `login_token` = '" . $loginSuccessObject->token . "', `login_token_effective_time` = '" . $tokenEffectiveTime . "' WHERE `user`.`id` = " . $userinfo->id);
         	echo json_encode($loginSuccessObject, JSON_UNESCAPED_UNICODE);
         }
     }
